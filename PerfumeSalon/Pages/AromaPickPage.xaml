@@ -1,0 +1,43 @@
+﻿<Page x:Class="PerfumeSalon.Pages.AromaPickPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PerfumeSalon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="760" d:DesignWidth="830"
+      Title="AromaPick"
+      Background="White"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <ListView x:Name="ListViewAromas"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectionChanged="ListViewAromas_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="#FFCECECE" BorderThickness="1" Background="White" CornerRadius="5" Cursor="Hand" ToolTip="{Binding Description}">
+                        <Grid Margin="10" Height="220" Width="140">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="140" />
+                                <RowDefinition Height="*" />
+                            </Grid.RowDefinitions>
+                            <Image x:Name="imgAromasGroup" Stretch="UniformToFill" Width="140" Height="140" Source="{Binding Image}"/>
+                            <StackPanel Grid.Row="1" Margin="0"  Orientation="Vertical">
+                                <TextBlock x:Name="tbAromasGroup" Text="{Binding Name}" Margin="5" FontSize="14" FontFamily="Consolas"/>
+                                <TextBlock Text="{Binding Type}" Margin="5" FontSize="14" FontFamily="Consolas"/>
+                                <TextBlock Text="{Binding Price}" Margin="5" FontSize="16" FontFamily="Consolas"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            >
+        </ListView>
+    </Grid>
+</Page>

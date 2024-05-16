@@ -1,0 +1,57 @@
+﻿<Window x:Class="PerfumeSalon.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PerfumeSalon"
+        mc:Ignorable="d"
+        Title="Парфюмерный салон" Height="630" Width="1040">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="240"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel x:Name="spTop" Grid.Row="0" Background="#FFA994C7" Orientation="Horizontal" Grid.Column="0">
+            <Button x:Name="btnOpenAromas" Content="Ароматы" FontSize="28" FontWeight="Light" VerticalAlignment="Center" Margin="40,0,0,0" Foreground="White" Background="{x:Null}" BorderThickness="0" Cursor="Hand" Click="btnOpenAromas_Click" Style="{StaticResource btnMouseOverStyle}" FontFamily="Courier New"/>
+            <Button x:Name="btnOpenNotes" Content="Ноты" FontSize="28" FontWeight="Light" VerticalAlignment="Center" Margin="40,0,0,0" Foreground="White" Background="{x:Null}" BorderThickness="0" Cursor="Hand" Click="btnOpenNotes_Click" Style="{StaticResource btnMouseOverStyle}" FontFamily="Courier New"/>
+            <Button x:Name="btnOpenPerfumes" Content="Парфюмы" FontSize="28" FontWeight="Light" VerticalAlignment="Center" Margin="40,0,0,0" Foreground="White" Background="{x:Null}" BorderThickness="0" Cursor="Hand" Click="btnOpenPerfumes_Click" Style="{StaticResource btnMouseOverStyle}" FontFamily="Courier New"/>
+            <Button x:Name="btnOpenConstructor" Content="Конструктор" FontSize="28" FontWeight="Light" VerticalAlignment="Center" Margin="40,0,0,0" Foreground="White" Background="{x:Null}" BorderThickness="0" Cursor="Hand" Click="btnOpenConstructor_Click" Style="{StaticResource btnMouseOverStyle}" FontFamily="Courier New"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Background="#FFA994C7" Orientation="Horizontal" Grid.Column="1">
+            <Button x:Name="btnOpenFavorites" Width="70" VerticalAlignment="Center" Cursor="Hand" Background="{x:Null}" Click="btnOpenFavorites_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="/Resources/FavoriteWhite.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Height="70" Width="70"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnOpenBasket" Width="70" VerticalAlignment="Center" Cursor="Hand" Background="{x:Null}" Click="btnOpenBasket_Click" Margin="10,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="/Resources/BasketWhite.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Height="70" Width="70"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <Button x:Name="btnOpenProfile" Width="70" VerticalAlignment="Center" Cursor="Hand" Background="{x:Null}" Click="btnOpenProfile_Click" Margin="10,0,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Image Source="/Resources/UserProfileWhite.png" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Height="70" Width="70"/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </StackPanel>
+        <ScrollViewer x:Name="scrollViewer" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Disabled"  Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="108*"/>
+                    <ColumnDefinition Width="707*"/>
+                </Grid.ColumnDefinitions>
+                <Frame x:Name ="FrameBody" Grid.ColumnSpan="2"/>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+</Window>

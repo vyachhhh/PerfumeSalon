@@ -1,0 +1,50 @@
+﻿<Page x:Class="PerfumeSalon.Pages.FavoriteAromaPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PerfumeSalon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="FavoriteAromaPage"
+      Background="White"
+      Loaded="Page_Loaded"
+      >
+
+    <Grid>
+        <Grid x:Name="gridEmpty">
+            <TextBlock Text="Тут пусто :(" FontSize="32" FontFamily="New Courier" FontWeight="Light"/>
+        </Grid>
+        <Grid x:Name="gridList" Margin="0,40,0,0">
+            <ListView x:Name="ListViewAromas"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectionChanged="ListViewAromas_SelectionChanged"
+                  Visibility="Visible">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel></WrapPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#FFCECECE" BorderThickness="1" Background="White" CornerRadius="5" Cursor="Hand" ToolTip="{Binding Description}">
+                            <Grid Margin="10" Height="220" Width="140">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <Image x:Name="imgAromasGroup" Stretch="UniformToFill" Width="140" Height="140" Source="{Binding Image}"/>
+                                <StackPanel Grid.Row="1" Margin="0"  Orientation="Vertical">
+                                    <TextBlock x:Name="tbAromasGroup" Text="{Binding Aroma}" Margin="5" FontSize="14" FontFamily="Consolas"/>
+                                    <TextBlock Text="{Binding Type}" Margin="5" FontSize="14" FontFamily="Consolas"/>
+                                    <TextBlock Text="{Binding Price}" Margin="5" FontSize="16" FontFamily="Consolas"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                >
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

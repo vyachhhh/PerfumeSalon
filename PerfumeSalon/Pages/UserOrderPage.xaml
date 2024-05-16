@@ -1,0 +1,44 @@
+﻿<Page x:Class="PerfumeSalon.Pages.UserOrderPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PerfumeSalon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="1000"
+      Title="UserOrderPage"
+      Background="White"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <ListView x:Name="ListViewOrders"
+                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                  SelectionChanged="ListViewOrders_SelectionChanged">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderBrush="Black" BorderThickness="2" Background="White" CornerRadius="10" Cursor="Hand" ToolTip="{Binding Description}">
+                        <Grid Margin="10" Height="150" Width="800">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="100" />
+                                <RowDefinition Height="50" />
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Row="0">
+                                <TextBlock Text="{Binding Date}" FontSize="26" FontFamily="New Courier" FontWeight="Light"/>
+                                <TextBlock Text="{Binding Address}" FontSize="26" FontFamily="New Courier" FontWeight="Light" TextWrapping="WrapWithOverflow"/>
+                            </StackPanel>
+                            <StackPanel Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                                <TextBlock Text="{Binding TotalPrice}" FontSize="34" FontFamily="Consolas" FontWeight="Light"/>
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+            >
+        </ListView>
+    </Grid>
+</Page>
