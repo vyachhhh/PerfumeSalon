@@ -11,9 +11,14 @@
       Loaded="Page_Loaded">
 
     <Grid>
-        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="300">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="300" Grid.Column="1">
             <TextBox x:Name="tbxLogin" Style="{StaticResource tbxPlaceholderStyle}" Margin="0,10,0,5" TextAlignment="Center" Foreground="Black"/>
-            <TextBox x:Name="tbxPassword" Style="{StaticResource tbxPlaceholderPasswordStyle}" Margin="0,5" TextAlignment="Center"/>
+            <PasswordBox x:Name="tbxPassword" Style="{StaticResource pbPlaceholderPasswordNoCharStyle}" Margin="0,5" HorizontalContentAlignment="Center"/>
 
             <TextBox x:Name="tbxFName" Style="{StaticResource tbxPlaceholderFirstNameStyle}" Margin="0,5" TextAlignment="Center"/>
             <TextBox x:Name="tbxMName" Style="{StaticResource tbxPlaceholderMiddleNameStyle}" Margin="0,5" TextAlignment="Center"/>
@@ -21,7 +26,18 @@
             <TextBox x:Name="tbxEmail" Style="{StaticResource tbxPlaceholderEmailStyle}" Margin="0,5" TextAlignment="Center"/>
             <TextBox x:Name="tbxPhone" Style="{StaticResource tbxPlaceholderPhoneStyle}" Margin="0,5" TextAlignment="Center"/>
 
-            <Button x:Name="btnSave" Content="сохранить" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,20" Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnSave_Click"/>
+            <Button x:Name="btnSave" Content="сохранить" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,20" 
+                    Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnSave_Click"/>
+            <Button x:Name="btnConstructor" Content="конструктор" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,10,25,5" 
+                    Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnConstructor_Click" />
+            <Button x:Name="btnAddProduct" Content="добавление продуктов" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,10,25,5" 
+                    Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnAddProduct_Click" />
+            <Button x:Name="btnOrder" Content="заказы" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,10,25,5" 
+                    Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnOrder_Click" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" VerticalAlignment="Bottom">
+            <Button x:Name="btnLogOut" Content="выйти" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,10,25,5" 
+                    Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnLogOut_Click" />
         </StackPanel>
     </Grid>
 </Page>

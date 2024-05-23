@@ -35,5 +35,29 @@ namespace PerfumeSalon.Classes
             }
             return spisok;
         }
+        public static List<Note> SearchNote(int groupId, string search)
+        {
+            if (search.Equals("")) search = "%";
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select * from SearchNote(@groupId, @search)", connect);
+            List<Note> list = new List<Note>();
+            command.Parameters.AddWithValue("@groupId", groupId);
+            command.Parameters.AddWithValue("@search", search);
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new Note(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2)));
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return list;
+        }
     }
 }

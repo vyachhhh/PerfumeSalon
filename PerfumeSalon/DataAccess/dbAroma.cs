@@ -137,5 +137,64 @@ namespace PerfumeSalon.Classes
             }
             return spisok;
         }
+        public static void AddAroma(string name, string description, List<AromaGroup> group, List<List<Note>> note)
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            try
+            {
+                connect.Open();
+
+                foreach (AromaGroup g in group)
+                {
+                    SqlCommand command = new SqlCommand("exec AddAroma @name, @description, @group", connect);
+                    command.Parameters.AddWithValue("@name", name);
+                    command.Parameters.AddWithValue("@description", description);
+                    command.Parameters.AddWithValue("@group", g.GroupName);
+                    command.ExecuteNonQuery();
+                }
+                for (int i = 0; i < note.Count; i++)
+                {
+                    foreach (Note n in note[i])
+                    {
+                        SqlCommand command = new SqlCommand("exec AddNoteToAroma @name, @noteclass, @noteId", connect);
+                        command.Parameters.AddWithValue("@name", name);
+                        command.Parameters.AddWithValue("@noteclass", i+1);
+                        command.Parameters.AddWithValue("@noteId", n.Id);
+                        command.ExecuteNonQuery();
+                    }
+                }
+                MessageBox.Show("Аромат добавлен");
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        public static List<Aroma> LoadAromaToComboBox()
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select A.[id],A.[Aroma],[Description]" +
+                " from Aroma A", connect);
+            List<Aroma> spisok = new List<Aroma>();
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    spisok.Add(new Aroma(reader.GetInt32(0), reader.GetString(1),
+                        reader.GetString(2)));
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return spisok;
+        }
+
     }
 }

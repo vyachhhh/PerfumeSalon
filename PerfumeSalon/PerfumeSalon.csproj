@@ -24,6 +24,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -138,7 +139,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Entities\PasswordPlaceholder.cs" />
     <Compile Include="Models\Aroma.cs" />
     <Compile Include="Models\AromaGroup.cs" />
     <Compile Include="Models\Basket.cs" />
@@ -159,7 +159,9 @@
     <Compile Include="Models\NoteGroup.cs" />
     <Compile Include="Models\NoteInAroma.cs" />
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductCategory.cs" />
+    <Compile Include="Models\ProductType.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\UserId.cs" />
     <Compile Include="Models\User.cs" />
@@ -168,6 +170,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AddProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminOrderPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\AromaInfoPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -212,6 +222,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\OrderShowPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PerfumePickPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -228,13 +242,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Styles\WpfStyles.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\Connection.cs" />
+    <Compile Include="Pages\AddProductPage.xaml.cs">
+      <DependentUpon>AddProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminOrderPage.xaml.cs">
+      <DependentUpon>AdminOrderPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\AromaInfoPage.xaml.cs">
       <DependentUpon>AromaInfoPage.xaml</DependentUpon>
     </Compile>
@@ -267,6 +283,9 @@
     </Compile>
     <Compile Include="Pages\OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OrderShowPage.xaml.cs">
+      <DependentUpon>OrderShowPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PerfumePickPage.xaml.cs">
       <DependentUpon>PerfumePickPage.xaml</DependentUpon>
@@ -306,7 +325,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\Styles\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\ProfilePic.jpg" />
   </ItemGroup>

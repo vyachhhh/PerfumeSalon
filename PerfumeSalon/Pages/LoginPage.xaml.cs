@@ -42,9 +42,7 @@ namespace PerfumeSalon.Pages
 
         public void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            user = dbUser.Login(tbxLogin.Text, tbxPassword.Text);
-            UserId.userId = user.Id;
-            UserId.roleId = user.Role;
+            user = dbUser.Login(tbxLogin.Text, tbxPassword.Password);
             if (UserId.userId != 0)
             {
                 FrameClass.BodyFrame.Navigate(new Pages.UserProfilePage());

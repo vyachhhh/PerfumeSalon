@@ -13,7 +13,7 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300">
             <TextBox x:Name="tbxLogin" Style="{StaticResource tbxPlaceholderLoginStyle}" Margin="0,50,0,5" TextAlignment="Center"/>
-            <TextBox x:Name="tbxPassword" Style="{StaticResource tbxPlaceholderPasswordStyle}" Margin="0,5" TextAlignment="Center"/>
+            <PasswordBox x:Name="tbxPassword" Style="{StaticResource pbPlaceholderPasswordStyle}" Margin="0,5" HorizontalAlignment="Center" Width="300" HorizontalContentAlignment="Center"/>
             <Button x:Name="btnLogin" Content="подтвердить" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,20" Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnLogin_Click"/>
             <Button x:Name="btnRegistration" Content="регистрация" FontWeight="Light" FontFamily="Consolas" FontSize="22" Margin="25,50,25,20" Background="Black" Foreground="White" Height="45" Style="{StaticResource btnMouseOverStyle}" Click="btnRegistration_Click"/>
         </StackPanel>

@@ -236,5 +236,104 @@ namespace PerfumeSalon.Classes
             }
             return types;
         }
+
+        public static List<ProductType> LoadProductTypeToComboBox()
+        {
+            List<ProductType> types = new List<ProductType>();
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select id, Type from ProductType", connect);
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        types.Add(new ProductType(reader.GetInt32(0), reader.GetString(1)));
+                    }
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return types;
+        }
+
+        public static List<ProductCategory> LoadProductCategoryToComboBox()
+        {
+            List<ProductCategory> categories = new List<ProductCategory>();
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select id, Category from ProductCategory", connect);
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        categories.Add(new ProductCategory(reader.GetInt32(0), reader.GetString(1)));
+                    }
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return categories;
+        }
+
+        public static List<Volume> LoadVolumeToComboBox()
+        {
+            List<Volume> volumes = new List<Volume>();
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select id, Volume from Volume", connect);
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        volumes.Add(new Volume(reader.GetInt32(0), reader.GetInt32(1)));
+                    }
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return volumes;
+        }
+
+        public static void AddProductToAroma(int type, int category, int aroma, int volume, int price)
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("exec AddProductToAroma @type, @category, @aroma, " +
+                "@volume, @price", connect);
+            command.Parameters.AddWithValue("@type",type);
+            command.Parameters.AddWithValue("@category", category);
+            command.Parameters.AddWithValue("@aroma", aroma);
+            command.Parameters.AddWithValue("@volume", volume);
+            command.Parameters.AddWithValue("@price", price);
+            try
+            {
+                connect.Open();
+                command.ExecuteNonQuery();
+                MessageBox.Show("Продукт добавлен");
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
     }
 }

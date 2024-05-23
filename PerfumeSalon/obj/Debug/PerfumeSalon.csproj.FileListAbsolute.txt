@@ -35,7 +35,6 @@ C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\MainWindow.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AromaInfoPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AromaPickPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\LoginPage.g.cs
-C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\MainPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\NotePickPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\PerfumePickPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\RegistrationPage.g.cs
@@ -46,7 +45,6 @@ C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\MainWindow.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AromaInfoPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AromaPickPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\LoginPage.baml
-C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\MainPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\NotePickPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\PerfumePickPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\RegistrationPage.baml
@@ -222,3 +220,9 @@ C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\UserOrderPage.g.c
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\NoteGroupPage.g.cs
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\NoteGroupPage.baml
 C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\UserOrderPage.baml
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AddProductPage.g.cs
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AddProductPage.baml
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AdminOrderPage.g.cs
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\OrderShowPage.g.cs
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\OrderShowPage.baml
+C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\obj\Debug\Pages\AdminOrderPage.baml

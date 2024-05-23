@@ -25,14 +25,8 @@ namespace PerfumeSalon
         {
             InitializeComponent();
             FrameClass.BodyFrame = FrameBody;
-            //Button btn = new Button();
-            //btn.Style = btnOpenAromas.Style;
-
-            //btnOpenNotes.Style = btn.Style;
-            //btnOpenConstructor.Style = btn.Style;
-            //btnOpenPerfumes.Style = btn.Style;
             FrameClass.BodyFrame.Navigate(new Pages.PerfumePickPage());
-            btnOpenConstructor.Visibility = Visibility.Hidden;
+            SetButtonVisibility();
         }
 
         private void btnOpenAromas_Click(object sender, RoutedEventArgs e)
@@ -77,6 +71,11 @@ namespace PerfumeSalon
         private void btnOpenBasket_Click(object sender, RoutedEventArgs e)
         {
             FrameClass.BodyFrame.Navigate(new Pages.BasketPage());
+        }
+        public void SetButtonVisibility()
+        {
+            if (UserId.roleId == 2) btnOpenConstructor.Visibility = Visibility.Hidden;
+            else btnOpenConstructor.Visibility = Visibility.Visible;
         }
     }
 }

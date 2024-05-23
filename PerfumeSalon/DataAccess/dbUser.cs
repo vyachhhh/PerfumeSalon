@@ -71,7 +71,7 @@ namespace PerfumeSalon.Classes
         public static User Login(string login, string password)
         {
             SqlConnection connect = new SqlConnection(Connection.connectionString);
-            SqlCommand command = new SqlCommand("select * from User" +
+            SqlCommand command = new SqlCommand("select * from [dbo].[User]" +
                 " where Login = @login", connect);
             User user = new User();
             command.Parameters.AddWithValue("@login", login);
@@ -82,7 +82,7 @@ namespace PerfumeSalon.Classes
                 if (reader.HasRows)
                 {
                     reader.Close();
-                    SqlCommand command1 = new SqlCommand("select * from User" +
+                    SqlCommand command1 = new SqlCommand("select * from [dbo].[User]" +
                         " where Login = @login and Password = @password", connect);
                     command1.Parameters.AddWithValue("@login", login);
                     command1.Parameters.AddWithValue("@password", password);

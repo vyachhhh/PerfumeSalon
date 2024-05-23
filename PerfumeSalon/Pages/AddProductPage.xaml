@@ -1,0 +1,44 @@
+﻿<Page x:Class="PerfumeSalon.Pages.AddProductPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:PerfumeSalon.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="800" d:DesignWidth="830"
+      Title="AddProductPage"
+      Background="White"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="4*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Margin="5,10">
+            <ComboBox x:Name="cbAroma" Height="30" DisplayMemberPath="Name" SelectedValuePath="Id" FontSize="18" FontFamily="Consolas"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="1" Margin="5,10">
+            <ComboBox x:Name="cbProductType" Height="30" DisplayMemberPath="Type" SelectedValuePath="Id" FontSize="18" FontFamily="Consolas"/>
+            <ComboBox x:Name="cbProductCategory" Height="30" Margin="0,10,0,0" DisplayMemberPath="Category" SelectedValuePath="Id" FontSize="18" FontFamily="Consolas"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="2" Margin="5,10">
+            <ComboBox x:Name="cbVolume" Height="30" DisplayMemberPath="Value" SelectedValuePath="Id" FontSize="18" FontFamily="Consolas"/>
+            <TextBox x:Name="tbPrice" Height="30" Margin="0,10,0,0" Text="0" TextAlignment="Right" FontSize="18" FontFamily="Consolas"/>
+        </StackPanel>
+        <StackPanel Grid.Row="0" Grid.Column="3" Margin="5,10">
+            <Button x:Name="btnAddProduct" Height="60" Margin="0,0,5,0" Content="добавить" FontSize="18" Foreground="White" 
+                    Background="Black" Style="{StaticResource btnMouseOverStyle}" FontFamily="Consolas"
+                    Click="btnAddProduct_Click"/>
+            <Button x:Name="btnClear" Height="60" Margin="0,10,5,0" Content="очистить поля" FontSize="18" Foreground="White" 
+                    Background="Red" Style="{StaticResource btnMouseOverStyle}" FontFamily="Consolas"
+                    Click="btnClear_Click"/>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -28,11 +28,11 @@ namespace PerfumeSalon.Pages
 
         public void btnRegistration_Click(object sender, RoutedEventArgs e)
         {
-            if (tbxPassword.Text == tbxPasswordConfirm.Text)
+            if (tbxPassword.Password == tbxPasswordConfirm.Password)
             {
                 if (tbxLogin.Text == "" || 
-                    tbxPassword.Text == "" || 
-                    tbxPasswordConfirm.Text == "" ||
+                    tbxPassword.Password.Length == 0 || 
+                    tbxPasswordConfirm.Password.Length == 0 ||
                     tbxFName.Text == "" ||
                     tbxMName.Text == "" ||
                     tbxLName.Text == "" ||
@@ -43,7 +43,7 @@ namespace PerfumeSalon.Pages
                 }
                 else
                 {
-                    dbUser.RegisterNewUser(tbxLogin.Text, tbxPassword.Text, tbxFName.Text, tbxMName.Text,
+                    dbUser.RegisterNewUser(tbxLogin.Text, tbxPassword.Password, tbxFName.Text, tbxMName.Text,
                 tbxLName.Text, tbxEmail.Text, tbxPhone.Text);
                 }
             }

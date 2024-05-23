@@ -32,9 +32,9 @@ namespace PerfumeSalon.Classes
         public static int GetLastOrderId(int userId, string address)
         {
             SqlConnection connect = new SqlConnection(Connection.connectionString);
-            SqlCommand command = new SqlCommand("select Top(1) O.id from Order O" +
+            SqlCommand command = new SqlCommand("select Top(1) O.id from [dbo].[Order] O" +
                 " join Customer C on C.id = O.Customer" +
-                " join User U on U.id = C.Login" +
+                " join [dbo].[User] U on U.id = C.Login" +
                 " where U.id = @userId" +
                 " and O.Address = @address" +
                 " group by O.id" +
@@ -131,5 +131,59 @@ namespace PerfumeSalon.Classes
             }
             return products;
         }
+
+        public static List<Order> ShowOrderAll()
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select * from ShowOrderAll()", connect);
+            List<Order> orders = new List<Order>();
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        orders.Add(new Order(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetInt32(4)));
+                    }
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return orders;
+        }
+
+        public static List<Order> SearchOrder(string search, DateTime dateAft, DateTime dateBef)
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select * from SearchOrder(@search, @dateAft, @dateBef)", connect);
+            command.Parameters.AddWithValue("@search",search);
+            command.Parameters.AddWithValue("@dateAft",dateAft);
+            command.Parameters.AddWithValue("@dateBef",dateBef);
+            List<Order> orders = new List<Order>();
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        orders.Add(new Order(reader.GetInt32(0), reader.GetString(1), reader.GetDateTime(2), reader.GetString(3), reader.GetInt32(4)));
+                    }
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return orders;
+        }
+
     }
 }

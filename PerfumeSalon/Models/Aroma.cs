@@ -27,5 +27,11 @@ namespace PerfumeSalon.Classes
             Image = new BitmapImage(uri);
         }
         public Aroma() { }
+        public Aroma(int id, string name, string description)
+        {
+            Id = id;
+            Name = name;
+            Description = description;
+        }
     }
 }

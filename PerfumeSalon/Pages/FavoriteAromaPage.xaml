@@ -35,7 +35,7 @@
                                 </Grid.RowDefinitions>
                                 <Image x:Name="imgAromasGroup" Stretch="UniformToFill" Width="140" Height="140" Source="{Binding Image}"/>
                                 <StackPanel Grid.Row="1" Margin="0"  Orientation="Vertical">
-                                    <TextBlock x:Name="tbAromasGroup" Text="{Binding Aroma}" Margin="5" FontSize="14" FontFamily="Consolas"/>
+                                    <TextBlock x:Name="tbAromasGroup" Text="{Binding Name}" Margin="5" FontSize="14" FontFamily="Consolas"/>
                                     <TextBlock Text="{Binding Type}" Margin="5" FontSize="14" FontFamily="Consolas"/>
                                     <TextBlock Text="{Binding Price}" Margin="5" FontSize="16" FontFamily="Consolas"/>
                                 </StackPanel>

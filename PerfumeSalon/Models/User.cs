@@ -18,6 +18,9 @@ namespace PerfumeSalon.Classes
             Login = login;
             Password = password;
             Role = role;
+
+            UserId.userId = Id;
+            UserId.roleId = role;
         }
         public User() { }
     }

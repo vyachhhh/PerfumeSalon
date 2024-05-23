@@ -13,8 +13,9 @@
     <Grid>
         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Stretch" Width="300">
             <TextBox x:Name="tbxLogin" Style="{StaticResource tbxPlaceholderLoginStyle}" Margin="0,10,0,5" TextAlignment="Center"/>
-            <PasswordBox x:Name="tbxPassword" Style="{StaticResource tbxPlaceholderPasswordStyle}" Margin="0,5"/>
-            <PasswordBox x:Name="tbxPasswordConfirm" Style="{StaticResource tbxPlaceholderPasswordSubmitStyle}" Margin="0,5"/>
+            <PasswordBox x:Name="tbxPassword" Style="{StaticResource pbPlaceholderPasswordStyle}" Margin="0,5" ToolTip="введите пароль" 
+                         HorizontalAlignment="Center" Width="300" HorizontalContentAlignment="Center"/>
+            <PasswordBox x:Name="tbxPasswordConfirm" Style="{StaticResource pbPlaceholderPasswordSubmitStyle}" Margin="0,5" ToolTip="подтвердите пароль" Width="300" HorizontalAlignment="Center" HorizontalContentAlignment="Center"/>
 
             <TextBox x:Name="tbxFName" Style="{StaticResource tbxPlaceholderFirstNameStyle}" Margin="0,5" TextAlignment="Center"/>
             <TextBox x:Name="tbxMName" Style="{StaticResource tbxPlaceholderMiddleNameStyle}" Margin="0,5" TextAlignment="Center"/>
