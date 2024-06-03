@@ -59,5 +59,28 @@ namespace PerfumeSalon.Classes
             }
             return list;
         }
+
+        public static List<Note> GetUsedNote()
+        {
+            SqlConnection connect = new SqlConnection(Connection.connectionString);
+            SqlCommand command = new SqlCommand("select * from fGetUsedNote() order by Note", connect);
+            List<Note> list = new List<Note>();
+            try
+            {
+                connect.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    list.Add(new Note(reader.GetInt32(0), reader.GetString(1), reader.GetInt32(2)));
+                }
+                connect.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            return list;
+        }
+
     }
 }

@@ -24,6 +24,7 @@ namespace PerfumeSalon.Pages
         public static List<Aroma> aromas = new List<Aroma>();
         public static List<AromaGroup> aromasGroup = new List<AromaGroup>();
         public static List<string> productsTypes = new List<string>();
+        public static List<Note> notes = new List<Note>();
         public PerfumePickPage()
         {
             InitializeComponent();
@@ -58,15 +59,19 @@ namespace PerfumeSalon.Pages
             cbAromasGroups.SelectedIndex = cbAromasGroups.Items.Count-1;
             cbProductType.SelectedIndex = cbProductType.Items.Count - 1;
 
-            UpdateList(0,"%","%","%");
+            notes = dbNote.GetUsedNote();
+            cbNote.Items.Add("все");
+            cbNote.SelectedValue = 0;
+            foreach (Note n in notes)
+            {
+                cbNote.Items.Add(n);
+            }
+
+            UpdateList(0,"%","%","%", Convert.ToInt32(cbNote.SelectedValue) -1);
         }
-        public void UpdateList(int index, string aromasGroup, string type, string search)
+        public void UpdateList(int index, string aromasGroup, string type, string search, int noteId)
         {
-            aromas = dbAroma.SearchAroma(index, aromasGroup, type, search);
-            //aromas = dbAroma.SearchAroma(cbSortList.SelectedIndex, cbAromasGroups.Text,
-            //cbProductType.Text, tbxSearch.Text);
-            //cbSortList.SelectedIndex, cbAromasGroups.Text, 
-            //cbProductType.Text, tbxSearch.Text
+            aromas = dbAroma.SearchAroma(index, aromasGroup, type, search, noteId);
             ListViewAromas.ItemsSource = null;
             ListViewAromas.Items.Clear();
             ListViewAromas.ItemsSource = aromas;
@@ -85,7 +90,7 @@ namespace PerfumeSalon.Pages
         {
             await Task.Delay(1);
             UpdateList(cbSortList.SelectedIndex, cbAromasGroups.Text,
-            cbProductType.Text, tbxSearch.Text);
+            cbProductType.Text, tbxSearch.Text, Convert.ToInt32(cbNote.SelectedValue));
         }
 
         private async void cbSortList_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -95,19 +100,18 @@ namespace PerfumeSalon.Pages
                 int selectedComboBoxIndex = cbSortList.SelectedIndex;
                 await Task.Delay(1);
                 UpdateList(selectedComboBoxIndex, cbAromasGroups.Text,
-                cbProductType.Text, tbxSearch.Text);
+                cbProductType.Text, tbxSearch.Text, Convert.ToInt32(cbNote.SelectedValue));
             }
         }
 
         private async void cbAromasGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //ListViewAromas.Items.Count > 0 &&
             if (cbAromasGroups.Items.Count > 0)
             {
                 string selectedComboBoxItem = cbAromasGroups.SelectedItem.ToString();
                 await Task.Delay(1);
                 UpdateList(cbSortList.SelectedIndex, selectedComboBoxItem.ToString(),
-                cbProductType.Text, tbxSearch.Text);
+                cbProductType.Text, tbxSearch.Text, Convert.ToInt32(cbNote.SelectedValue));
             }
         }
 
@@ -118,7 +122,18 @@ namespace PerfumeSalon.Pages
                 string selectedComboBoxItem = cbProductType.SelectedItem.ToString();
                 await Task.Delay(1);
                 UpdateList(cbSortList.SelectedIndex, cbAromasGroups.Text,
-                selectedComboBoxItem.ToString(), tbxSearch.Text);
+                selectedComboBoxItem.ToString(), tbxSearch.Text, Convert.ToInt32(cbNote.SelectedValue));
+            }
+        }
+
+        private async void cbNote_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (cbNote.Items.Count > 0)
+            {
+                int selectedComboBoxItem = Convert.ToInt32(cbNote.SelectedValue);
+                await Task.Delay(1);
+                UpdateList(cbSortList.SelectedIndex, cbAromasGroups.Text,
+                cbProductType.Text, tbxSearch.Text, Convert.ToInt32(cbNote.SelectedValue));
             }
         }
     }

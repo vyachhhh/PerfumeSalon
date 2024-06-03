@@ -92,7 +92,7 @@ namespace PerfumeSalon.Classes
             }
             return spisok;
         }
-        public static List<Aroma> SearchAroma(int index, string aromasGroup, string type, string search)
+        public static List<Aroma> SearchAroma(int index, string aromasGroup, string type, string search, int noteId)
         {
             if (aromasGroup == "" || aromasGroup == " " || aromasGroup == null)
             {
@@ -106,8 +106,12 @@ namespace PerfumeSalon.Classes
             {
                 search = "%";
             }
+            if (noteId < 1)
+            {
+                noteId = -1;
+            }
             SqlConnection connect = new SqlConnection(Connection.connectionString);
-            SqlCommand command = new SqlCommand("select * from SearchAroma(@aromasGroup,@type,@search)", connect);
+            SqlCommand command = new SqlCommand("select * from SearchAroma(@aromasGroup,@type,@search,@noteId)", connect);
             switch (index)
             {
                 case 0: command.CommandText += " order by Aroma asc"; break;
@@ -119,6 +123,7 @@ namespace PerfumeSalon.Classes
             command.Parameters.AddWithValue("@aromasGroup", aromasGroup);
             command.Parameters.AddWithValue("@type", type);
             command.Parameters.AddWithValue("@search", search);
+            command.Parameters.AddWithValue("@noteId", noteId);
             try
             {
                 connect.Open();

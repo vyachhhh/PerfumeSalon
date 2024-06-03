@@ -34,8 +34,6 @@ namespace PerfumeSalon.Pages
         private void ListViewGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             int index = ListViewGroups.SelectedIndex;
-            //string group = aromasGroups[index].AromasGroup;
-            //MessageBox.Show(group);
             int id = aromaGroups[index].Id;
             FrameClass.BodyFrame.Navigate(new Pages.AromaPickPage(id));
         }

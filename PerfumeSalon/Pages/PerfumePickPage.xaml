@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:PerfumeSalon.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="1000"
+      d:DesignHeight="600" d:DesignWidth="1300"
       Title="PerfumePickPage"
       Background="White"
       Loaded="Page_Loaded">
@@ -13,21 +13,30 @@
     <Grid>
         <Grid VerticalAlignment="Top" Height="80" Background="White">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0" VerticalAlignment="Center" Margin="10,0">
+                <TextBlock Text="сортировка" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" Margin="0,-26,0,0"/>
                 <ComboBox x:Name="cbSortList" FontFamily="New Courier" FontSize="20" FontWeight="Light" Foreground="Black" SelectionChanged="cbSortList_SelectionChanged"/>
             </StackPanel>
             <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0">
+                <TextBlock Text="группа" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" Margin="0,-26,0,0"/>
                 <ComboBox x:Name="cbAromasGroups" FontFamily="New Courier" FontSize="20" FontWeight="Light" Foreground="Black" SelectionChanged="cbAromasGroups_SelectionChanged"/>
             </StackPanel>
             <StackPanel Grid.Column="2" VerticalAlignment="Center" Margin="10,0">
+                <TextBlock Text="тип продукта" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" Margin="0,-26,0,0"/>
                 <ComboBox x:Name="cbProductType" FontFamily="New Courier" FontSize="20" FontWeight="Light" Foreground="Black" SelectionChanged="cbProductType_SelectionChanged"/>
             </StackPanel>
             <StackPanel Grid.Column="3" VerticalAlignment="Center" Margin="10,0">
+                <TextBlock Text="ноты" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" Margin="0,-26,0,0"/>
+                <ComboBox x:Name="cbNote" FontFamily="New Courier" FontSize="20" FontWeight="Light" Foreground="Black" SelectionChanged="cbNote_SelectionChanged" DisplayMemberPath="Name" SelectedValuePath="Id"/>
+            </StackPanel>
+            <StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="10,0" Orientation="Vertical">
+                <TextBlock Text="поиск" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" Margin="0,-26,0,0"/>
                 <TextBox x:Name="tbxSearch" FontFamily="New Courier" FontSize="22" FontWeight="Light" Foreground="Black" TextChanged="tbxSearch_TextChanged"/>
             </StackPanel>
         </Grid>
