@@ -45,6 +45,12 @@ namespace PerfumeSalon.Pages
                 {
                     dbUser.RegisterNewUser(tbxLogin.Text, tbxPassword.Password, tbxFName.Text, tbxMName.Text,
                 tbxLName.Text, tbxEmail.Text, tbxPhone.Text);
+                    User user = dbUser.Login(tbxLogin.Text, tbxPassword.Password);
+                    if (user.Id != 0)
+                    {
+                        MessageBox.Show("Авторизация прошла успешно");
+                        FrameClass.BodyFrame.Navigate(new Pages.UserProfilePage());
+                    }
                 }
             }
             else

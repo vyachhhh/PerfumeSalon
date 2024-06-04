@@ -93,7 +93,6 @@ namespace PerfumeSalon.Classes
                         {
                             user = new User(reader1.GetInt32(0), reader1.GetString(1), reader1.GetString(2), reader1.GetInt32(3));
                         }
-                        MessageBox.Show("Авторизация прошла успешно");
                     }
                     else
                     {

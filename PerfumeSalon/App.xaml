@@ -134,9 +134,9 @@
                                 BorderThickness="{TemplateBinding BorderThickness}" />
                                 <ScrollViewer x:Name="PART_ContentHost" />
                             <TextBlock x:Name="PlaceholderText"
-                                           Text="пароль"
+                                           Text="подтверждение пароля"
                                    Foreground="Gray" 
-                                   Visibility="Collapsed"
+                                   Visibility="Visible"
                                    FontSize="22"
                                    FontFamily="New Courier"
                                    FontWeight="Light"

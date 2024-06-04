@@ -45,6 +45,7 @@ namespace PerfumeSalon.Pages
             user = dbUser.Login(tbxLogin.Text, tbxPassword.Password);
             if (UserId.userId != 0)
             {
+                MessageBox.Show("Авторизация прошла успешно");
                 FrameClass.BodyFrame.Navigate(new Pages.UserProfilePage());
             }
         }
