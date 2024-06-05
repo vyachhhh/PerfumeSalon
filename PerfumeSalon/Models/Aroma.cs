@@ -22,7 +22,6 @@ namespace PerfumeSalon.Classes
             Description = description;
             Type = type;
             Price = price;
-            //Uri uri = new Uri(@"C:\Users\I'm\Desktop\PerfumeSalon\PerfumeSalon\Resources\Volumes\" + volume.ToString() + ".jpg", UriKind.Relative);
             Uri uri = new Uri($"/Resources/Volumes/{volume}.jpg", UriKind.Relative);
             Image = new BitmapImage(uri);
         }

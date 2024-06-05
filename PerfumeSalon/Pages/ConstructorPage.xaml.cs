@@ -116,12 +116,18 @@ namespace PerfumeSalon.Pages
         private void btnAddAroma_Click(object sender, RoutedEventArgs e)
         {
             List<AromaGroup> group = cbAromaGroupSelected.Items.OfType<AromaGroup>().ToList();
-
             List<Note> topNoteList = cbNoteClassTop.Items.OfType<Note>().ToList();
             List<Note> midNoteList = cbNoteClassMid.Items.OfType<Note>().ToList();
             List<Note> botNoteList = cbNoteClassBot.Items.OfType<Note>().ToList();
-            List<List<Note>> noteList = new List<List<Note>> { topNoteList, midNoteList, botNoteList };
-            dbAroma.AddAroma(tbAromaName.Text,tbDescription.Text, group, noteList);
+            if (group.Count > 0 && topNoteList.Count > 0 && midNoteList.Count > 0 && botNoteList.Count > 0)
+            {
+                List<List<Note>> noteList = new List<List<Note>> { topNoteList, midNoteList, botNoteList };
+                dbAroma.AddAroma(tbAromaName.Text, tbDescription.Text, group, noteList);
+            }
+            else
+            {
+                MessageBox.Show("Заполнены не все списки!");
+            }
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

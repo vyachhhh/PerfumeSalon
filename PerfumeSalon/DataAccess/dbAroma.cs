@@ -133,7 +133,6 @@ namespace PerfumeSalon.Classes
                     spisok.Add(new Aroma(reader.GetInt32(0), reader.GetString(1),
                         reader.GetString(2), reader.GetString(3), reader.GetInt32(4), reader.GetInt32(5)));
                 }
-                //MessageBox.Show($"{index}\t{aromasGroup}\t{type}\t{search}");
                 connect.Close();
             }
             catch (Exception ex)

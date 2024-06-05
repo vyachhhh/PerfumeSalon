@@ -58,11 +58,19 @@ namespace PerfumeSalon.Pages
                 int price = Convert.ToInt32(tbPrice.Text);
                 if (price > 0)
                 {
-                    dbProduct.AddProductToAroma(Convert.ToInt32(cbProductType.SelectedValue),
-    Convert.ToInt32(cbProductCategory.SelectedValue),
-    Convert.ToInt32(cbAroma.SelectedValue),
-    Convert.ToInt32(cbVolume.SelectedValue),
-    price);
+                    if (Convert.ToInt32(cbProductType.SelectedValue) >= 1 && Convert.ToInt32(cbProductCategory.SelectedValue) >= 1
+                        && Convert.ToInt32(cbAroma.SelectedValue) >= 1 && Convert.ToInt32(cbVolume.SelectedValue) >= 1)
+                    {
+                        dbProduct.AddProductToAroma(Convert.ToInt32(cbProductType.SelectedValue),
+                    Convert.ToInt32(cbProductCategory.SelectedValue),
+                    Convert.ToInt32(cbAroma.SelectedValue),
+                    Convert.ToInt32(cbVolume.SelectedValue),
+                    price);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Не все поля заполнены!");
+                    }
                 }
                 else
                 {
