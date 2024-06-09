@@ -319,5 +319,33 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+
+        <Style TargetType="TextBox" x:Key="tbxSearchBox" BasedOn="{StaticResource tbxPlaceholderStyle}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Grid>
+                            <Border Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}" />
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                            <TextBlock x:Name="PlaceholderText" Text="поиск ноты" 
+                                   Foreground="Gray" 
+                                   Visibility="Collapsed"
+                                   FontSize="14"
+                                   FontFamily="Consolas"
+                                   FontWeight="Light"
+                                   IsHitTestVisible="False"
+                                       VerticalAlignment="Top"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="Text" Value="">
+                                <Setter TargetName="PlaceholderText" Property="Visibility" Value="Visible"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>
